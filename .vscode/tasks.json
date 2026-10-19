@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ESP32-CAM: Compile Firmware",
+            "type": "shell",
+            "command": "\"C:\\Users\\Bbala\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe\" compile --fqbn esp32:esp32:esp32cam:PartitionScheme=huge_app esp32_cam_stream",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ESP32-CAM: Upload Firmware (COM3)",
+            "type": "shell",
+            "command": "\"C:\\Users\\Bbala\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe\" upload -p COM3 --fqbn esp32:esp32:esp32cam:PartitionScheme=huge_app esp32_cam_stream",
+            "problemMatcher": []
+        },
+        {
+            "label": "ESP32-CAM: Serial Monitor (COM3)",
+            "type": "shell",
+            "command": "\"C:\\Users\\Bbala\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe\" monitor -p COM3 -c baudrate=115200",
+            "problemMatcher": []
+        },
+        {
+            "label": "Surveillance: Run Flask Server (ESP32 Stream)",
+            "type": "shell",
+            "command": "$env:ESP32_STREAM_URL = 'http://10.12.180.15:81/stream'; .\\.venv\\Scripts\\python.exe app.py",
+            "problemMatcher": []
+        }
+    ]
+}
